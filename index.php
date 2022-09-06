@@ -3,51 +3,28 @@
 
 <head>
   <meta charset='utf-8' />
-  <!-- <link rel="stylesheet" type="text/css" href="css.css"> -->
+  <link rel="stylesheet" type="text/css" href="config.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
   <link href='Arquivos do Calendar/lib/main.css' rel='stylesheet' />
 
   <script src='Arquivos do Calendar/lib/main.js'></script>
   <script src='includes/calendar_config.js'></script>
-
-  <style>
-    body {
-      font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-      font-size: 14px;
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-     
-    }
-
-    #calendar {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    #calendar_modal {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    main {
-      flex: 1 0 auto;
-    }
-  </style>
 </head>
 
 <body>
   <?php
   include_once 'includes/header.php';
   include_once 'php_action/db_connect.php';
-  include_once 'includes/modal_calendar.html';
+  //include_once 'includes/modal_calendar.php';
   ?>
   <main>
     
       <div style="padding-top:3%;">
         <div id='calendar'></div>
       </div>
-      <a href="#modal" class="btn modal-trigger">Acessar Calendário</a>
+      <!--<a href="#modal" class="btn modal-trigger">Acessar Calendário</a> -->
+      <a href="includes/modal_calendar.php" class="btn">Acessar Calendário</a>
     <br>
     <hr>
     <br>
