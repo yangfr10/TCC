@@ -16,15 +16,22 @@
   <?php
   include_once 'includes/header.php';
   include_once 'php_action/db_connect.php';
+
   //include_once 'includes/modal_calendar.php';
   ?>
   <main>
+
+    <div style="padding-top:3%;">
+      <div id='calendar'></div>
+    </div>
+    <?php
+    include_once 'includes/modal_info.php';
+    include_once 'includes/modal_edit.php';
+    include_once 'includes/modal_form.php';
     
-      <div style="padding-top:3%;">
-        <div id='calendar'></div>
-      </div>
-      <!--<a href="#modal" class="btn modal-trigger">Acessar Calendário</a> -->
-      <a href="includes/modal_calendar.php" class="btn">Acessar Calendário</a>
+    ?>
+    <!--<a href="#modal" class="btn modal-trigger">Acessar Calendário</a> -->
+    <a href="includes/modal_calendar.php" class="btn">Acessar Calendário</a>
     <br>
     <hr>
     <br>
@@ -78,6 +85,21 @@
   <script>
     $(document).ready(function() {
       $('.modal').modal();
+    });
+  </script>
+    <script>
+    $(document).ready(function() {
+      $('.btn-toggle').on('click', function() {
+        $('.vis_event').slideToggle();
+        $('.formedit').slideToggle();
+      });
+    });
+
+    $(document).ready(function() {
+      $('.btn-cancelar').on('click', function() {
+        $('.formedit').slideToggle();
+        $('.vis_event').slideToggle();
+      });
     });
   </script>
 </body>

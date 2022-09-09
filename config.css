@@ -19,3 +19,10 @@ body {
   main {
 	flex: 1 0 auto;
   }
+  .vis_event {
+	display: block;
+  }
+
+  .formedit {
+	display: none;
+  }

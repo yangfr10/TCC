@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
         locale: 'pt-br',
-        events: '../Calendar_action/list_events.php',
+        events: 'Calendar_action/list_events.php',
         eventClick: function (info) {
             $("#delete").attr("href", "delete_event.php?id=" + info.event.id);
             info.jsEvent.preventDefault();
