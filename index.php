@@ -16,30 +16,39 @@
   <?php
   include_once 'includes/header.php';
   include_once 'php_action/db_connect.php';
+
   //include_once 'includes/modal_calendar.php';
   ?>
   <main>
-    
-      <div style="padding-top:3%;">
-        <div id='calendar'></div>
-      </div>
-      <!--<a href="#modal" class="btn modal-trigger">Acessar Calendário</a> -->
-      <a href="includes/modal_calendar.php" class="btn">Acessar Calendário</a>
-    <br>
+  <div style="padding-left: 2%;">
+      <h4>Calendário Semanal</h4>
+    </div>
+    <div>
+      <div id='calendar'></div>
+    </div>
+    <?php
+    include_once 'includes/modal_info.php';
+    include_once 'includes/modal_edit.php';
+    include_once 'includes/modal_form.php';
+    ?>
+    <!--<a href="#modal" class="btn modal-trigger">Acessar Calendário</a> -->
+    <div style="text-align: center; padding-top: 2%; padding-bottom: 2%;">
+      <a href="includes/modal_calendar.php" class="btn-floating teal lighten-3"> <i class="material-icons">event</i> </a>
+    </div>
+
     <hr>
-    <br>
-    <div class="button">
-      <h3>Pacientes</h3>
-      <a href="adicionar.php" class="waves-effect waves-light btn green">Cadastrar Paciente</a>
+
+    <div style="padding-left: 2%;">
+      <h4>Pacientes</h4>
     </div>
     <table class="striped">
       <thead>
         <tr>
           <th>Nome</th>
-          <th>Prontuário</th>
+          <th>Avaliação</th>
+          <th>Evolução</th>
           <th>Status</th>
-          <th>Cadastro</th>
-sadasdas
+
 
         </tr>
       </thead>
@@ -51,23 +60,30 @@ sadasdas
         while ($dados = mysqli_fetch_array($resultado)) :
         ?>
           <tr>
-            <td><?php echo $dados['Nome']; ?></td>
-            <td> <a href="prontuario.php?id=<?php echo $dados['Id']; ?>" class="btn cyan lighten-2">Acessar</a></td>
             <td>
-              <a class='dropdown-button btn purple accent-1' data-activates='<?php echo $dados['Id']; ?>'>Selecionar</a>
-              <ul id='<?php echo $dados['Id']; ?>' class='dropdown-content'>
-                <li><a href="Avaliação/Tabela_avaliação.php?id=<?php echo $dados['Id']; ?>">Avaliação</a></li>
-                <li><a href="Evolução/Tabela_evolução.php?id=<?php echo $dados['Id']; ?>">Evolução</a></li>
-              </ul>
+              <p style="text-transform: uppercase; padding-left: 2%;"><?php echo $dados['Nome']; ?></p>
             </td>
-            <td><a href="editar.php?id=<?php echo $dados['Id']; ?>" class="btn-floating blue"> <i class="material-icons">edit</i>
-                <a href="php_action/delete.php?id=<?php echo $dados['Id']; ?>" class="btn-floating red"> <i class="material-icons">delete</i>
+
+            <td>
+              <a href="Avaliação/Tabela_avaliação.php?id=<?php echo $dados['Id']; ?>" class="btn teal lighten-2">Acessar</a>
             </td>
+            <td>
+              <a href="Evolução/Tabela_evolução.php?id=<?php echo $dados['Id']; ?>" class="btn blue lighten-1">Acessar</a>
+            </td>
+            <td>
+              <a href="prontuario.php?id=<?php echo $dados['Id']; ?>" class="btn-floating cyan lighten-2"> <i class="material-icons">content_paste</i></a>
+              <a href="editar.php?id=<?php echo $dados['Id']; ?>" class="btn-floating blue darken-2"> <i class="material-icons">edit</i> </a>
+              <a href="php_action/delete.php?id=<?php echo $dados['Id']; ?>" class="btn-floating red darken-1"> <i class="material-icons">delete</i></a>
+            </td>
+
 
           </tr>
         <?php endwhile; ?>
       </tbody>
-    </table> <br><br><br><br><br><br><br>
+    </table>
+    <div style="text-align:center; padding-top:2%; padding-bottom: 5%">
+      <a href="adicionar.php" class="waves-effect waves-light btn-floating green lighten-2"><i class="material-icons">add</i></a>
+    </div>
   </main>
   <?php
   include_once 'includes/footer.php';
@@ -78,6 +94,22 @@ sadasdas
   <script>
     $(document).ready(function() {
       $('.modal').modal();
+      $('select').material_select();
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      $('.btn-toggle').on('click', function() {
+        $('.vis_event').slideToggle();
+        $('.formedit').slideToggle();
+      });
+    });
+
+    $(document).ready(function() {
+      $('.btn-cancelar').on('click', function() {
+        $('.formedit').slideToggle();
+        $('.vis_event').slideToggle();
+      });
     });
   </script>
 </body>
