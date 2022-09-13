@@ -4,18 +4,85 @@ body {
 	display: flex;
 	min-height: 100vh;
 	flex-direction: column;
-   
-  }
 
-  #calendar {
+}
+
+p {
+	padding-left: 2%;
+	display: inline-block;
+	font-size: 125%;
+	padding-bottom: 0%;
+	padding-top: 0%;
+}
+
+.A {
+	padding-top: 2%;
+	padding-bottom: 0%;
+	padding-left: 2%;
+}
+.nome_principal {
+	padding-left: 2.5%;
+	padding-bottom: 0%;
+	padding-top: 2%;
+	display: inline-block;
+	font-size: 125%;
+	font-weight: bold;
+	margin-top: 0%;
+	margin-bottom: 0%;
+}
+.nome_campo {
+	padding-left: 3%;
+	display: inline-block;
+	font-size: 125%;
+	padding-bottom: 0%;
+	padding-top: 0%;
+	text-transform: uppercase;
+	margin-top: 0%;
+	margin-bottom: 0%;
+}
+
+.info_campo {
+	padding-bottom: 0%;
+	padding-top: 0%;
+	margin-top: 0%;
+	margin-bottom: 0%;
+}
+
+.nome_info {
+	padding-bottom: 0%;
+	padding-top: 0%;
+}
+
+h5 {
+	padding-top: 2%;
+	padding-bottom: 3%;
+	padding-left: 2%;
+}
+
+h4 {
+	padding-top: 2%;
+	padding-bottom: 3%;
+	padding-left: 2%;
+}
+
+#calendar {
 	max-width: 1100px;
 	margin: 0 auto;
-  }
-  #calendar_modal {
+}
+
+#calendar_modal {
 	max-width: 1100px;
 	margin: 0 auto;
-  }
+}
 
-  main {
+main {
 	flex: 1 0 auto;
-  }
+}
+
+.vis_event {
+	display: block;
+}
+
+.formedit {
+	display: none;
+}
