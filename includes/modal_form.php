@@ -1,6 +1,10 @@
 <div class="modal" id="cadastrar">
 
+<<<<<<< HEAD
     <form action="Calendar_action/cad_event.php" id="addevent" method="POST">
+=======
+    <form action="cad_event" id="addevent" method="POST">
+>>>>>>> 56d492159c954cd5a442fb0a52d30c6126c4ccae
         <div class="modal-content">
             <h4>Detalhes do evento</h4>
             <hr />
@@ -13,7 +17,11 @@
 
             <div class="col s12 m6">
                 <label for="color">Cor</label>
+<<<<<<< HEAD
                 <select name="color" id="color">
+=======
+                <select name="color" id="color" required>
+>>>>>>> 56d492159c954cd5a442fb0a52d30c6126c4ccae
                     <option value="" disabled selected>Selecione</option>
                     <option style="color:#FF0000;" value="#FF0000">Vermelho</option>
                     <option style="color:#00FF00;" value="#00FF00">Verde</option>

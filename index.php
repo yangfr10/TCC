@@ -20,22 +20,35 @@
   //include_once 'includes/modal_calendar.php';
   ?>
   <main>
+<<<<<<< HEAD
   <div style="padding-left: 2%;">
       <h4>Calendário Semanal</h4>
     </div>
     <div>
+=======
+
+    <div style="padding-top:3%;">
+>>>>>>> 56d492159c954cd5a442fb0a52d30c6126c4ccae
       <div id='calendar'></div>
     </div>
     <?php
     include_once 'includes/modal_info.php';
     include_once 'includes/modal_edit.php';
     include_once 'includes/modal_form.php';
+<<<<<<< HEAD
     ?>
     <!--<a href="#modal" class="btn modal-trigger">Acessar Calendário</a> -->
     <div style="text-align: center; padding-top: 2%; padding-bottom: 2%;">
       <a href="includes/modal_calendar.php" class="btn-floating teal lighten-3"> <i class="material-icons">event</i> </a>
     </div>
 
+=======
+    
+    ?>
+    <!--<a href="#modal" class="btn modal-trigger">Acessar Calendário</a> -->
+    <a href="includes/modal_calendar.php" class="btn">Acessar Calendário</a>
+    <br>
+>>>>>>> 56d492159c954cd5a442fb0a52d30c6126c4ccae
     <hr>
 
     <div style="padding-left: 2%;">
@@ -98,6 +111,21 @@
     });
   </script>
   <script>
+    $(document).ready(function() {
+      $('.btn-toggle').on('click', function() {
+        $('.vis_event').slideToggle();
+        $('.formedit').slideToggle();
+      });
+    });
+
+    $(document).ready(function() {
+      $('.btn-cancelar').on('click', function() {
+        $('.formedit').slideToggle();
+        $('.vis_event').slideToggle();
+      });
+    });
+  </script>
+    <script>
     $(document).ready(function() {
       $('.btn-toggle').on('click', function() {
         $('.vis_event').slideToggle();

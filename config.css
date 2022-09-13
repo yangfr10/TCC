@@ -77,6 +77,7 @@ h4 {
 
 main {
 	flex: 1 0 auto;
+<<<<<<< HEAD
 }
 
 .vis_event {
@@ -86,3 +87,13 @@ main {
 .formedit {
 	display: none;
 }
+=======
+  }
+  .vis_event {
+	display: block;
+  }
+
+  .formedit {
+	display: none;
+  }
+>>>>>>> 56d492159c954cd5a442fb0a52d30c6126c4ccae

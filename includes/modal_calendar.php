@@ -16,7 +16,11 @@
         locale: 'pt-br',
         events: '../Calendar_action/list_events.php',
         eventClick: function(info) {
+<<<<<<< HEAD
           $("#delete").attr("href", "Calendar_action/delete_event.php?id=" + info.event.id);
+=======
+          $("#delete").attr("href", "delete_event.php?id=" + info.event.id);
+>>>>>>> 56d492159c954cd5a442fb0a52d30c6126c4ccae
           info.jsEvent.preventDefault();
           $('#modal #id').text(info.event.id);
           $('#modal #id').val(info.event.id);
@@ -86,6 +90,11 @@
     </div>
    
 </div> -->
+<<<<<<< HEAD
+=======
+  <?php //include_once '../Calendar_action/list_events.php'; 
+  ?>
+>>>>>>> 56d492159c954cd5a442fb0a52d30c6126c4ccae
   <div id='calendar_modal'></div>
 
 </body>
