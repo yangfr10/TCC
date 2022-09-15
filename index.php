@@ -20,35 +20,22 @@
   //include_once 'includes/modal_calendar.php';
   ?>
   <main>
-<<<<<<< HEAD
   <div style="padding-left: 2%;">
       <h4>Calendário Semanal</h4>
     </div>
     <div>
-=======
-
-    <div style="padding-top:3%;">
->>>>>>> 56d492159c954cd5a442fb0a52d30c6126c4ccae
       <div id='calendar'></div>
     </div>
     <?php
     include_once 'includes/modal_info.php';
     include_once 'includes/modal_edit.php';
     include_once 'includes/modal_form.php';
-<<<<<<< HEAD
     ?>
     <!--<a href="#modal" class="btn modal-trigger">Acessar Calendário</a> -->
     <div style="text-align: center; padding-top: 2%; padding-bottom: 2%;">
       <a href="includes/modal_calendar.php" class="btn-floating teal lighten-3"> <i class="material-icons">event</i> </a>
     </div>
 
-=======
-    
-    ?>
-    <!--<a href="#modal" class="btn modal-trigger">Acessar Calendário</a> -->
-    <a href="includes/modal_calendar.php" class="btn">Acessar Calendário</a>
-    <br>
->>>>>>> 56d492159c954cd5a442fb0a52d30c6126c4ccae
     <hr>
 
     <div style="padding-left: 2%;">
@@ -68,7 +55,7 @@
 
       <tbody>
         <?php
-        $sql = "SELECT * FROM pacientes";
+        $sql = "SELECT * FROM pacientes WHERE arquivado = 0";
         $resultado = mysqli_query($connect, $sql);
         while ($dados = mysqli_fetch_array($resultado)) :
         ?>
@@ -86,7 +73,7 @@
             <td>
               <a href="prontuario.php?id=<?php echo $dados['Id']; ?>" class="btn-floating cyan lighten-2"> <i class="material-icons">content_paste</i></a>
               <a href="editar.php?id=<?php echo $dados['Id']; ?>" class="btn-floating blue darken-2"> <i class="material-icons">edit</i> </a>
-              <a href="php_action/delete.php?id=<?php echo $dados['Id']; ?>" class="btn-floating red darken-1"> <i class="material-icons">delete</i></a>
+              <a href="php_action/arquivar.php?id=<?php echo $dados['Id']; ?>" class="btn-floating teal"> <i class="material-icons">folder</i></a>
             </td>
 
 

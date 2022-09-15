@@ -10,7 +10,7 @@ $paginaCorrente = basename($_SERVER['SCRIPT_NAME']);
                     <a href="/Tela_TCC/adicionar.php">CADASTRAR</a>
                 </li>
                 <li>
-                    <a href="">ARQUIVADOS</a>
+                    <a href="/Tela_TCC/arquivados.php">ARQUIVADOS</a>
                 </li>
             </ul>
         </div>

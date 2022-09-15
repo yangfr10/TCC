@@ -21,7 +21,3 @@
             <a href="" id="delete" class="btn waves effect-waves ligth red darken-1">Apagar</a>
         </div>
     </div>
-<<<<<<< HEAD
-=======
-</div>
->>>>>>> 56d492159c954cd5a442fb0a52d30c6126c4ccae
