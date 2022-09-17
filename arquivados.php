@@ -20,8 +20,15 @@
     <?php
     include_once 'php_action/db_connect.php';
     include_once 'includes/header.php';
-    
+    $sql = "SELECT * FROM pacientes WHERE arquivado = 1;";
+    $resultado = mysqli_query($connect, $sql);
+    // $array = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+    //var_dump($array);
+    //echo $array['1']['Id'];
     ?>
+
+
+
     <main>
       <h4>Arquivados</h4>
       <table class="striped">
@@ -36,25 +43,54 @@
 
         <tbody>
           <?php
-          $sql = "SELECT * FROM pacientes WHERE arquivado = 1;";
-          $resultado = mysqli_query($connect, $sql);
-          $dados = mysqli_fetch_array($resultado);
-          while ($dados = mysqli_fetch_array($resultado)) :
+          while ($dados = mysqli_fetch_all($resultado, MYSQLI_ASSOC)) :
+            foreach ($dados as $chave => $valor) {
           ?>
-            <tr>
-              <td>
-                <p style="text-transform: uppercase; padding-left: 2%;"><?php echo $dados['Nome']; ?></p>
-              </td>
-              <td>
-                <a href="prontuario.php?id=<?php echo $dados['Id']; ?>" class="btn-floating cyan lighten-2"> <i class="material-icons">content_paste</i></a>
-                <a href="php_action/desarquivar.php?id=<?php echo $dados['Id']; ?>" class="btn-floating teal"> <i class="material-icons">undo</i> </a>
-                <a href="#modal_excluir" class="btn modal-trigger red darken-1"> <i class="material-icons">delete</i></a>
-              </td>
+
+              <!-- Modal Excluir -->
+              <div class="modal" id="modal_excluir <?php echo $valor['Id'] ?>">
+                <div class="modal-content">
+                  <h5>Tem certeza que deseja excluir o paciente <p style="font-size:1.64rem; font-weight: bold; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; text-transform: uppercase;"><?php echo $valor['Nome'] ?></p>? Todos os dados do registro
+                incluindo o seu prontuário, avaliações e evoluções serão perdidas. 
+                </h5>
+                </div>
+                <div class="modal-footer">
+                  <a class="btn modal-close modal-action green darken-1">CANCELAR</a>
+                  <a href="php_action/delete.php?id=<?php echo $valor['Id']; ?>" class="btn waves effect-waves ligth red darken-1">Apagar</a>
+                </div>
+              </div>
+
+              <tr>
+                <td>
+                  <p style="text-transform: uppercase; padding-left: 2%;"><?php echo $valor['Nome'];
+                                                                          ?></p>
+                </td>
+                <td>
+                  <a href="prontuario.php?id=<?php echo $valor['Id'];
+                                              ?>" class="btn-floating cyan lighten-2"> <i class="material-icons">content_paste</i></a>
+                  <a href="php_action/desarquivar.php?id=<?php echo $valor['Id'];
+                                                          ?>" class="btn-floating teal"> <i class="material-icons">undo</i> </a>
+                  <a href="#modal_excluir <?php echo $valor['Id'] ?>" class="btn-floating modal-trigger red darken-1"> <i class="material-icons">delete</i></a>
+                </td>
 
 
-            </tr>
-          <?php endwhile;
-          include_once 'includes/modal_excluir.php'; ?>
+              </tr>
+
+
+
+            <?php
+              foreach ($valor as $indice => $result) {
+              }
+            }
+            ?>
+
+
+
+          <?php
+          endwhile;
+
+          ?>
+
         </tbody>
       </table>
       <div class="center-align" style="padding-top: 2%;">
