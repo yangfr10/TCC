@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -45,7 +48,35 @@
 		</div>
 		<hr>
 		<h5>Documentos:</h5>
-		<button>Anexar Arquivos</button>
+
+		<form action="php_action/salvar_arquivo.php" method="POST" enctype="multipart/form-data">
+
+			<input type="hidden" name="id" value="<?php echo $id; ?>">
+			<input type="hidden" id="toast" value="<?php echo $_SESSION['mensagem']; ?>">
+				<script>
+					let mensagem = document.getElementById("toast").value;
+					//alert(mensagem);
+				 	Materialize.toast(mensagem, 3000, 'rounded'); 
+				
+				 </script>
+			<div class="file-field input-field" style="padding-left: 4%; padding-right: 4%;">
+				<div class="btn">
+					<span>Arquivo</span>
+					<input type="file" name="arquivo" multiple>
+				</div>
+				<div class="file-path-wrapper">
+					<input class="file-path validate" type="text" placeholder="Faça o upload de um ou mais documentos">
+				</div>
+			</div>
+
+			<div class="center-align" style="padding-top: 2%; padding-bottom:2%;">
+				<input type="submit" name="btn" value="Anexar" class="btn">
+			</div>
+
+		</form>
+
+
+
 		<hr>
 		<h5 class="A">Avaliações:</h5>
 		<?php while ($dados1 = mysqli_fetch_array($resultado1)) : ?>
@@ -79,12 +110,18 @@
 		<?php endwhile; ?>
 	</main>
 
-	<div class="center-align" style="padding-bottom: 2%;">
-		<a href="index.php" class="btn-floating green lighten-2"><i class="material-icons">keyboard_backspace</i></a>
+	<div style="padding-top: 3%; padding-bottom: 3%;">
+		<div style="display: inline-block">
+			<a href="index.php" class="btn-floating green lighten-2"><i class="material-icons">keyboard_backspace</i></a>
+		</div>
+		<div style="display: inline-block; padding-left:42.5%;">
+			<a href="pdf.php?id=<?php echo $dados['Id']; ?>" class="btn green lighten-2">Exportar PDF</a>
+		</div>
 	</div>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
+
 </body>
 
 </html>
